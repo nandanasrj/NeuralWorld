@@ -1,0 +1,222 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+    color: white;
+    min-height: 100vh;
+}
+
+nav {
+    padding: 20px 40px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.hero {
+    text-align: center;
+    padding: 60px 20px 20px;
+}
+
+.hero h2 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.hero p { opacity: 0.7; }
+
+/* ---- TABS ---- */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 30px 0 10px;
+}
+
+.tab {
+    padding: 10px 28px;
+    border-radius: 30px;
+    border: 2px solid rgba(255,255,255,0.15);
+    background: transparent;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tab:hover { border-color: #00ffcc; color: #00ffcc; }
+
+.tab.active {
+    background: #00ffcc;
+    color: black;
+    border-color: #00ffcc;
+    font-weight: bold;
+}
+
+/* ---- SHARED CONTROLS ---- */
+.shared-controls {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px 40px;
+    background: rgba(255,255,255,0.04);
+    margin: 10px 7.5%;
+    border-radius: 12px;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 200px;
+}
+
+.control-group label { font-size: 14px; opacity: 0.7; }
+
+.control-group select,
+.control-group input[type="range"] {
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    background: #2a2a2a;
+    color: white;
+}
+
+.control-group select option {
+    background: #2a2a2a;
+    color: white;
+}
+
+/* ---- PANEL ---- */
+.panel {
+    width: 85%;
+    margin: 30px auto;
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+}
+
+.controls {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.controls label { font-size: 14px; opacity: 0.7; }
+
+.controls input[type="file"] {
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+}
+
+.controls button {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background: #00ffcc;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 15px;
+}
+
+.controls button:hover { transform: scale(1.05); }
+
+.controls button:disabled {
+    background: #555;
+    color: #aaa;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.status { font-size: 13px; color: #00ffcc; min-height: 20px; }
+
+.fps-box {
+    font-size: 13px;
+    opacity: 0.6;
+    margin-top: 5px;
+}
+
+/* ---- OUTPUT ---- */
+.output {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.output img,
+.output video {
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0, 255, 204, 0.2);
+}
+
+/* ---- IMAGE & VIDEO RESULTS ---- */
+#imageResult {
+    display: none;
+    width: 100%;
+}
+
+#videoResult {
+    display: none;
+    width: 100%;
+}
+
+/* ---- WEBCAM ---- */
+.webcam-output {
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 20px;
+}
+
+.webcam-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.feed-label {
+    font-size: 13px;
+    opacity: 0.6;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#webcamFeed {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    background: #111;
+    min-height: 180px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.05);
+}
+
+#webcamResult {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    background: #111;
+    min-height: 180px;
+    box-shadow: 0 0 25px rgba(0, 255, 204, 0.2);
+}

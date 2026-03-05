@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NeuralWorld</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <h1>NeuralWorld</h1>
+    </nav>
+
+    <section class="hero">
+        <h2>Real-Time AI Style Engine</h2>
+        <p>Upload images or videos — or use your live webcam.</p>
+    </section>
+
+    <!-- TABS -->
+    <div class="tabs">
+        <button class="tab active" onclick="switchTab('image', this)">🖼 Image</button>
+        <button class="tab" onclick="switchTab('video', this)">🎬 Video</button>
+        <button class="tab" onclick="switchTab('webcam', this)">📷 Webcam</button>
+    </div>
+
+    <!-- SHARED STYLE CONTROLS -->
+    <div class="shared-controls">
+        <div class="control-group">
+            <label>Select Style</label>
+            <select id="style">
+                <option value="mosaic">Mosaic</option>
+                <option value="pointilism">Pointilism</option>
+                <option value="udnie">Udnie</option>
+                <option value="candy">Candy</option>
+                <option value="rain_princess">Rain Princess</option>
+            </select>
+        </div>
+        <div class="control-group">
+            <label>Strength: <span id="strengthValue">1.0</span></label>
+            <input type="range" id="strength" min="0" max="1" step="0.1" value="1">
+        </div>
+    </div>
+
+    <!-- IMAGE TAB -->
+    <section class="panel" id="tab-image">
+        <div class="controls">
+            <label>Upload Image</label>
+            <input type="file" id="imageInput" accept="image/*">
+            <button id="imageBtn" onclick="stylizeImage()">Stylize Image</button>
+            <p id="imageStatus" class="status"></p>
+        </div>
+        <div class="output">
+            <img id="imageResult" />
+        </div>
+    </section>
+
+    <!-- VIDEO TAB -->
+    <section class="panel" id="tab-video" style="display:none">
+        <div class="controls">
+            <label>Upload Video</label>
+            <input type="file" id="videoInput" accept="video/*">
+            <button id="videoBtn" onclick="stylizeVideo()">Stylize Video</button>
+            <p id="videoStatus" class="status"></p>
+        </div>
+        <div class="output">
+            <video id="videoResult" controls></video>
+        </div>
+    </section>
+
+    <!-- WEBCAM TAB -->
+    <section class="panel" id="tab-webcam" style="display:none">
+        <div class="controls">
+            <button id="webcamBtn" onclick="toggleWebcam()">▶ Start Webcam</button>
+            <p id="webcamStatus" class="status"></p>
+            <div class="fps-box">
+                <span>FPS: <span id="fpsDisplay">0</span></span>
+            </div>
+        </div>
+        <div class="output webcam-output">
+            <div class="webcam-wrap">
+                <p class="feed-label">Original</p>
+                <video id="webcamFeed" autoplay muted playsinline style="width:100%; display:block;"></video>
+                <canvas id="captureCanvas" style="display:none"></canvas>
+            </div>
+            <div class="webcam-wrap">
+                <p class="feed-label">Styled</p>
+                <img id="webcamResult" />
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
