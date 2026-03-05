@@ -8,8 +8,3 @@ for model in candy mosaic pointilism rain_princess udnie; do
     curl -L -o "/app/models/${model}.onnx" "${BASE}/${model}.onnx"
   fi
 done
-```
-
-**2. Update `backend/Procfile`** to:
-```
-web: bash download_models.sh && uvicorn main:app --host 0.0.0.0 --port $PORT
